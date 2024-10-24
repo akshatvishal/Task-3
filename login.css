@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Varela+Round&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Lilita One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(circle,#ADD7F6 20%,
+    #87BFFF 20%,
+    #87BFFF 40%,
+    #3F8EFC 40%,
+    #3F8EFC 60%,
+    #2667FF 60%,
+    #2667FF 80%,
+    #3B28CC 80%
+    );
+}
+.login{
+    border-radius: 100%;
+    background: linear-gradient(130deg,#58a3f8,#053D7D);
+    height: 22rem;
+    width: 22rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.4rem;
+    align-items: center;
+    filter: drop-shadow(8px 8px 8px);
+}
+.head{
+    font-weight: 100;
+    font-size: 2.3rem;
+    color: #fcfcfc;
+}
+.login input{
+    border: none;
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.5rem;
+    background: linear-gradient( rgb(255, 255, 255),#cccccc) ;
+}
+.login input::placeholder{
+    color: rgb(62, 62, 62);
+    font-size: 0.8rem;
+} 
+button{
+    padding: 0.7rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #2F2293;
+    color: white;
+    border: none;
+}

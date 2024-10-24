@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="notes.css">
+</head>
+<body>
+    <div class="popup">
+        <form class="information">
+            <input type="text" name="title" placeholder="Title" required/>
+            <h3 class="created">none</h3>
+            <div class="three">
+                <div class="color-options" id="colorOptions">
+                    <div class="color-option" style="background-color: #FF0000;" data-color="#FF0000"></div>
+                    <div class="color-option" style="background-color: #00FF00;" data-color="#00FF00"></div>
+                    <div class="color-option" style="background-color: #0000FF;" data-color="#0000FF"></div>
+                    <div class="color-option" style="background-color: #F0C808;" data-color="#F0C808"></div>
+                  </div>
+                <select id="category" name="category">
+                    <option value="Work">Work</option>
+                    <option value="Fun">Fun</option>
+                    <option value="Journal">Journal</option>
+                    <option value="Gym">Gym</option>
+                    <option value="Goals">Goals</option>
+                </select>
+                <h3  class="Editedok">Last Edited :none</h3>
+            </div>
+            <textarea name="content" placeholder="Text here..." rows="25" cols="120"></textarea>
+            <button type="submit">Done</button>
+        </form>
+    </div>
+    <div class="header">
+            <h1 class="welcome">Welcome Akshat</h1>
+            <div class="darkmode">
+                <input type="checkbox" id="check">
+                <label for="check" class="button"></label>
+            </div>
+    </div>
+    <form class="decide">
+            
+        <button class="creatbtn" type="button">+</button>
+    </form>
+    
+    <div id="list">
+        
+    </div>
+    <script src="notes.js"></script>
+</body>
+</html>
