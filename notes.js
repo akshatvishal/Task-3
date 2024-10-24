@@ -4,8 +4,11 @@
         const pop = document.querySelector('.popup');
         const form2=document.querySelector('form')
         const edit=document.querySelector('.edit');
+        const mode=document.querySelector('.darkmode input[type="checkbox"]');
+        const header=document.querySelector('.header')
         let time=document.querySelector('.Editedok');
         let created=document.querySelector('.created');
+
         var color;
         let currentnote=null;
 
@@ -96,6 +99,18 @@
             }
               
         })    
+        
+        mode.addEventListener('change',(e)=>{
+            if(mode.checked){
+                document.body.style.backgroundColor='black';
+                header.style.backgroundColor='#170F55';
+            }
+            else{
+                document.body.style.backgroundColor='white'
+                header.style.backgroundColor='#3B28CC';
+            }
+        })
+        
 
         
         
