@@ -84,16 +84,17 @@ function creatNote(note){
                 <p>${note.category}</p>
                 <span class="edit">Edit</span>
                 <span class="close">x</span>
-                <textarea placeholder="text here..." rows="10" cols="30">${note.content}</textarea> `;
+                <textarea placeholder="text here..." ro ws="10" cols="30">${note.content}</textarea> `;
                 newnote.classList.add('note');
                 newnote.style.backgroundColor=note.Notecolor  
                 list.appendChild(newnote);
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
                 loadinfo();
 }
 
 // Update login info
 function loadinfo(){
-    let users = JSON.parse(localStorage.getItem("form")) || []; 
+    let users = JSON.parse(localStorage.getItem("form1")) || []; 
 
     users.forEach((user, index) => {
         // Check if the username and email match
@@ -104,6 +105,6 @@ function loadinfo(){
     });
     
     users.push(currentUser);
-    localStorage.setItem("form", JSON.stringify(users));
+    localStorage.setItem("form1", JSON.stringify(users));
     
 }

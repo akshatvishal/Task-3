@@ -24,7 +24,7 @@
     </div>
 
     <script>
-      let users = JSON.parse(localStorage.getItem("form")) || [];
+      let users = JSON.parse(localStorage.getItem("form1")) || [];
       console.log(users)
       const head = document.querySelector(".head");
       const info = document.querySelector(".info");
@@ -39,7 +39,6 @@
 
         let userFound = false;
         let currentUser = null;
-        let list = [];
 
         //if the user exists
         users.forEach((user) => {
@@ -60,7 +59,7 @@
           const newUser = { username, email, list: [] };
           users.push(newUser);
 
-          localStorage.setItem("form", JSON.stringify(users));  
+          localStorage.setItem("form1", JSON.stringify(users));  
 
           console.log("New user added:", newUser);
           info.textContent = `User ${username} signed up successfully!`;
