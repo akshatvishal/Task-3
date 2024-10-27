@@ -88,19 +88,22 @@ function creatNote(note){
                 newnote.classList.add('note');
                 newnote.style.backgroundColor=note.Notecolor  
                 list.appendChild(newnote);
-
+                loadinfo();
 }
 
 // Update login info
-let users = JSON.parse(localStorage.getItem("form")) || []; 
+function loadinfo(){
+    let users = JSON.parse(localStorage.getItem("form")) || []; 
 
-users.forEach((user, index) => {
-    // Check if the username and email match
-    if (user.username === currentUser.username && user.email === currentUser.email) {
-        users.splice(index, 1); 
-        console.log(index)
-    }
-});
-
-users.push(currentUser);
-localStorage.setItem("form", JSON.stringify(users));
+    users.forEach((user, index) => {
+        // Check if the username and email match
+        if (user.username === currentUser.username && user.email === currentUser.email) {
+            users.splice(index, 1); 
+            console.log(index)
+        }
+    });
+    
+    users.push(currentUser);
+    localStorage.setItem("form", JSON.stringify(users));
+    
+}
