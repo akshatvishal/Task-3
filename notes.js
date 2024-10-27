@@ -12,6 +12,7 @@
         var color;
         let currentnote=null;
 
+
         
         const obj = JSON.parse(localStorage.getItem('form'));
         console.log(obj);
@@ -78,7 +79,7 @@
                 console.log("Create button clicked");
             let newnote = document.createElement('div');
             newnote.innerHTML = `
-                <h2>${title}</h2>
+                <h2 tabindex="1">${title}</h2>
                 <p>${category}</p>
                 <span class="edit">Edit</span>
                 <span class="close">x</span>
@@ -93,7 +94,7 @@
                 newnote.classList.add('note');
                 newnote.style.backgroundColor=color  
                 list.appendChild(newnote);
-                localStorage.setItem("list",JSON.stringify(list))
+                
             form2.reset();
             pop.style.display = 'none';   
             }

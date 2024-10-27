@@ -4,30 +4,74 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Note</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css" />
   </head>
   <body>
     <div class="circle">
-        <form class="login">
-            <h2 class="head">Login</h2>
-          <div>
-            <input type="text" name="Username" required placeholder="Username" />
-          </div>
-          <div>
-            <input type="email" name="email" placeholder="email" required/>
-          </div>
-          <button type="submit">Submit</button>
-        </form>
+      <form class="login">
+        <h2 class="head">Login</h2>
+        <div>
+          <input type="text" name="username" required placeholder="Username" />
+        </div>
+        <div>
+          <input type="email" name="email" required placeholder="Email" />
+        </div>
+        <button class="submit" type="submit">Login</button>
+        <div>
+          <p class="info"></p>
+        </div>
+      </form>
     </div>
+
     <script>
+      let users = JSON.parse(localStorage.getItem("form")) || [];
+      console.log(users)
+      const head = document.querySelector(".head");
+      const info = document.querySelector(".info");
       const form = document.querySelector("form");
+      const button = document.querySelector(".submit");
+
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const fd = new FormData(form);
-        const obj = Object.fromEntries(fd);
-        console.log(obj);
-        localStorage.setItem("form", JSON.stringify(obj));
-        window.location.href = "notes.html";
+
+        const username = form.username.value.trim();
+        const email = form.email.value.trim();
+
+        let userFound = false;
+        let currentUser = null;
+        let list = [];
+
+        //if the user exists
+        users.forEach((user) => {
+          if (user.username === username && user.email === email) {
+            userFound = true;
+            currentUser = user; 
+            localStorage.setItem("currentUser", JSON.stringify(currentUser)); // Save current user in localStorage
+            info.textContent = `Welcome back, ${username}!`;
+            window.location.href = 'notes.html'; 
+          }
+        });
+
+        if (!userFound) {
+          // If no user found, switch to Sign Up mode
+          head.textContent = "Sign Up";
+          info.textContent = "No user found. Please sign up.";
+
+          const newUser = { username, email, list: [] };
+          users.push(newUser);
+
+          localStorage.setItem("form", JSON.stringify(users));  
+
+          console.log("New user added:", newUser);
+          info.textContent = `User ${username} signed up successfully!`;
+
+          button.addEventListener('click',(e)=>{
+            e.preventDefault();
+            window.location.reload();
+          })
+        }
+
+        form.reset();
       });
     </script>
   </body>
